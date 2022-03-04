@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Creat-React-App/static/js/main.c3c4bde6.js",
-    "index.html": "/Creat-React-App/index.html",
-    "main.c3c4bde6.js.map": "/Creat-React-App/static/js/main.c3c4bde6.js.map"
+    "main.js": "/Creat-React-App.git/static/js/main.e910b6b8.js",
+    "index.html": "/Creat-React-App.git/index.html",
+    "main.e910b6b8.js.map": "/Creat-React-App.git/static/js/main.e910b6b8.js.map"
   },
   "entrypoints": [
-    "static/js/main.c3c4bde6.js"
+    "static/js/main.e910b6b8.js"
   ]
 }
