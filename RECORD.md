@@ -7,12 +7,13 @@ React appllication을 만들면서 공부한 내용 기록하기.
     * npm start 실행 : React App 실행
         -> Terminal에서 npm start or npm run start로 실행한다.
 
+## .js
+
 - 한 File당 한 component을 가지고 있고, index,js에서 component들을 import시킨다.
+
 - component에 해당하는 css도 module로 만들어서 사용한다.
   - module.css에서는 class create
   - .js에서 css를 import하고 적용하고자 하는 tag에 -> classname = import명.class명 <- 으로 사용한다.
-
-## .js
 
 `export default Button;`
 -> another .js에서 import할 수 있도록 export해 준다.
@@ -85,3 +86,46 @@ useEffect( () => {
 return <tag></tag>;
 };
 ```
+
+#### [React-router-dom]
+
+How?
+
+- import하기
+
+```Update 전
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom"
+
+  function App() {
+    {/* User가 이 경로에 있으면 Home Route rendering */}
+  return (
+    <Router>
+      <Switch>
+        <Route path="/">
+          {/* User가 이 경로에 있으면 Home Route rendering */}
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
+  }
+
+```
+
+->Update))
+
+- Switch가 Routes로 대체
+- Route component 사이에 child component 넣지 않고, element prop을 할당하도록 바뀌었다.
+  => < Route path = "/" element = {<Home/>} />
+
+What?
+
+- Switch : Route를 찾는 것 , Route를 찾으면 component를 rendering한다.
+- BrowserRouter : URL은 보통의 like normal app site
+- Hash Router : URL뒤에 #등이 붙는다. ex) localhost:5500/#/movie
+
+## install
+
+- npm i prop-types
+- npm install react-router-dom
+-
