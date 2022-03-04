@@ -12,10 +12,36 @@ React appllication을 만들면서 공부한 내용 기록하기.
   - module.css에서는 class create
   - .js에서 css를 import하고 적용하고자 하는 tag에 -> classname = import명.class명 <- 으로 사용한다.
 
-## Button.js
+## .js
 
 `export default Button;`
 -> another .js에서 import할 수 있도록 export해 준다.
+
+`then()` 대신 `async-await`를 사용한다.
+
+```useEffect(() => {
+    fetch(
+      `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setMovies(json.data.movies);
+        setLoading(false);
+      });
+  }, []);
+```
+
+```
+ const getMovies = async () => {
+  const response = await fetch(
+    `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
+  );
+  const json = await response.json();
+  setMovies(json.data.movies);
+  setLoading(false);
+};
+  useEffect(() => getMovies(), []);
+```
 
 #### [React library]
 
