@@ -16,3 +16,46 @@ React appllication을 만들면서 공부한 내용 기록하기.
 
 `export default Button;`
 -> another .js에서 import할 수 있도록 export해 준다.
+
+#### [React library]
+
+##### useEffect
+
+what?
+
+- 코드를 언제 실행할 지 선택할 수 있는 function
+- 내부적으로 component 최초의 render 후에 rerendering시 반복되지않고 한번만 실행됐으면 하는 component적용하는 function
+- useEffect는 두 개의 argument를 가지는 function이다.
+
+How?
+
+- 첫번째 argument : 실행하고 싶은 코드
+- 두번째 argument : 조건부 실행을 줄 수 있다. -> dependencys : react.js가 변화하기 위해 인지하고 있어야할 것
+  - i) [] : 조건이 비어있기 때문에 변화를 인지할 것이 없으므로 최초의 실행만 허용
+  - ii) [state] : 해당 state가 변경이 될 경우에만 실행 허용
+
+##### cleanup
+
+What?
+
+- component가 destroy될 때도 코드를 실행할 수 있다.
+- 숨기는 것이 아니라 destroy하는 것이다.
+
+How?
+
+- React.js가 로직을 실행할 때 return 하면서 useEffect를 통해서 실해하고 싶은 로직을 줄 수 있다.
+  React.js가 destory될 때도 return에 cleanup 코드를 줄 수 있다.
+
+```
+function () {
+useEffect( () => {
+          <!-- 실행할 function logic -->
+          return () => {
+          <!-- Cleanup function logic
+                destory될 때 실행되는 코드
+           -->
+          }
+},[]);
+return <tag></tag>;
+};
+```
